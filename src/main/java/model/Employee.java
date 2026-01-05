@@ -13,15 +13,15 @@ public class Employee {
     public Employee(String FirstName, String LastName1, String LastName2, String id, int salary) {
 
         if (FirstName == null) {
-            throw new NullPointerException("FirstName is null");
+            throw new IllegalArgumentException("FirstName is null");
         }
 
         if (LastName1 == null) {
-            throw new NullPointerException("LastName1 is null");
+            throw new IllegalArgumentException("LastName1 is null");
         }
 
         if (LastName2 == null) {
-            throw new NullPointerException("LastName1 is null");
+            throw new IllegalArgumentException("LastName1 is null");
         }
 
         this.FirstName = FirstName;
