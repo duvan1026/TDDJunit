@@ -21,7 +21,7 @@ public class Employee {
         }
 
         if (LastName2 == null) {
-            throw new IllegalArgumentException("LastName1 is null");
+            throw new IllegalArgumentException("LastName2 is null");
         }
 
         this.FirstName = FirstName;

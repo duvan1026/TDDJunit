@@ -28,4 +28,26 @@ public class EmployeeTest {
             assertTrue(e.getMessage().equals("FirstName is null"));
         }
     }
+
+    @Test
+    void Constructor_Falla_Si_LastName1_Es_Nulo()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", null, "Gomez", "12345678A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("LastName1 is null"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_LastName2_Es_Nulo()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", null, "12345678A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("LastName2 is null"));
+        }
+    }
 }
