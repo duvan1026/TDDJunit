@@ -50,4 +50,15 @@ public class EmployeeTest {
             assertTrue(e.getMessage().equals("LastName2 is null"));
         }
     }
+
+    @Test
+    void Constructor_Falla_Si_Firstname_Es_Vacio()
+    {
+        try {
+            Employee duvanPerez = new Employee("", "Perez", "Gomez", "12345678A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("valor Firstname es vacio o solo espacios"));
+        }
+    }
 }
