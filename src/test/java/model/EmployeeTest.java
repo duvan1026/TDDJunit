@@ -61,4 +61,27 @@ public class EmployeeTest {
             assertTrue(e.getMessage().equals("valor Firstname es vacio o solo espacios"));
         }
     }
+
+    @Test
+    void Constructor_Falla_Si_LastName1_Es_Vacio()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "", "Gomez", "12345678A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("valor LastName1 es vacio o solo espacios"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_LastName2_Es_Vacio()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "", "12345678A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("valor LastName2 es vacio o solo espacios"));
+        }
+    }
+
 }
