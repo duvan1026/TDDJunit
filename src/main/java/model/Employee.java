@@ -34,5 +34,4 @@ public class Employee {
         this.Id = id;
         this.Salary = salary;
     }
-
 }
