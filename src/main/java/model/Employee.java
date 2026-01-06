@@ -28,6 +28,14 @@ public class Employee {
             throw new IllegalArgumentException("valor Firstname es vacio o solo espacios");
         }
 
+        if (LastName1.isEmpty() || LastName1.trim().isEmpty()) {
+            throw new IllegalArgumentException("valor LastName1 es vacio o solo espacios");
+        }
+
+        if (LastName2.isEmpty() || LastName2.trim().isEmpty()) {
+            throw new IllegalArgumentException("valor LastName2 es vacio o solo espacios");
+        }
+
         this.FirstName = FirstName;
         this.LastName1 = LastName1;
         this.LastName2 = LastName2;
