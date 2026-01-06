@@ -13,6 +13,7 @@ public class EmployeeTest {
     {
         try {
             Employee duvanPerez = new Employee("Duvan", "Perez", "Gomez", "12345678A", 1000);
+            //duvanPerez.FirstName == "Duvan"
             assertFalse(false);
         } catch (Exception e) {
             assertFalse(true);
