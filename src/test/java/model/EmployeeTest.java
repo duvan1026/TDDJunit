@@ -85,4 +85,37 @@ public class EmployeeTest {
         }
     }
 
+    @Test
+    void Constructor_Falla_Si_Id_No_Tiene_9_Caracteres()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "Gomez", "1234A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Id inválido"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_Id_Primeros_8_No_Son_Digitos()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "Gomez", "1234AB78C", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Id inválido"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_Id_Ultimo_Caracter_No_Es_Letra()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "Gomez", "123456789", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Id inválido"));
+        }
+    }
+
 }
