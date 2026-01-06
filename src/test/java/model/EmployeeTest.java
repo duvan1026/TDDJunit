@@ -1,5 +1,6 @@
 package model;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -61,4 +62,60 @@ public class EmployeeTest {
             assertTrue(e.getMessage().equals("valor Firstname es vacio o solo espacios"));
         }
     }
+
+    @Test
+    void Constructor_Falla_Si_LastName1_Es_Vacio()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "", "Gomez", "12345678A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("valor LastName1 es vacio o solo espacios"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_LastName2_Es_Vacio()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "", "12345678A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("valor LastName2 es vacio o solo espacios"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_Id_No_Tiene_9_Caracteres()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "Gomez", "1234A", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Id inválido"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_Id_Primeros_8_No_Son_Digitos()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "Gomez", "1234AB78C", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Id inválido"));
+        }
+    }
+
+    @Test
+    void Constructor_Falla_Si_Id_Ultimo_Caracter_No_Es_Letra()
+    {
+        try {
+            Employee duvanPerez = new Employee("Duvan", "Perez", "Gomez", "123456789", 1000);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Id inválido"));
+        }
+    }
+
 }
