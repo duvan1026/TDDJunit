@@ -1,13 +1,15 @@
 package model;
 
+import java.util.Objects;
+
 public class Employee {
 
     // Declaración Atributos
-    String FirstName;
-    String LastName1;
-    String LastName2;
-    String Id;
-    double Salary;
+    public String FirstName;
+    public String LastName1;
+    public String LastName2;
+    public String Id;
+    public double Salary;
 
     // Contructores
     public Employee(String firstName, String lastName1, String lastName2, String id, int salary) {
@@ -43,6 +45,11 @@ public class Employee {
             throw new IllegalArgumentException("Id inválido");
         }
 
+        if (salary < 600 || salary > 1000)
+        {
+            throw new IllegalArgumentException("Salary fuera de rango");
+        }
+
         this.FirstName = firstName;
         this.LastName1 = lastName1;
         this.LastName2 = lastName2;
@@ -54,5 +61,36 @@ public class Employee {
         if (value == null) {
             throw new IllegalArgumentException(fieldName + " is null");
         }
+    }
+
+    public void raiseSalary(int percentage){
+
+        if (percentage < 0)
+        {
+            throw new IllegalArgumentException("Percentage negativo no permitido");
+        }
+
+        if(percentage == 0)
+        {
+            return;
+        }
+
+        double newSalary = this.Salary + (this.Salary *  percentage / 100);
+        this.Salary =  newSalary;
+    }
+
+    public boolean isEqualTo(Employee otherEmployee)
+    {
+        if(otherEmployee == null)
+        {
+            throw new IllegalArgumentException("Employee nulo");
+        }
+
+        if(Objects.equals(this.Id, otherEmployee.Id))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
