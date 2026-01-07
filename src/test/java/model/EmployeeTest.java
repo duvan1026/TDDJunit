@@ -152,4 +152,39 @@ public class EmployeeTest {
         }
     }
 
+    @Test
+    void RaiseSalary_Falla_Si_Percentage_Es_Negativo()
+    {
+        try {
+            Employee duvanPerez = new Employee("Juan", "Perez", "Gomez", "12345678A", 1000);
+            duvanPerez.raiseSalary(-10);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Percentage negativo no permitido"));
+        }
+    }
+
+    @Test
+    void RaiseSalary_No_Cambia_Si_Percentage_Es_Cero()
+    {
+        try {
+            Employee duvanPerez = new Employee("Juan", "Perez", "Gomez", "12345678A", 1000);
+            duvanPerez.raiseSalary(0);
+            assertTrue(true);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(false);
+        }
+    }
+
+    @Test
+    void RaiseSalary_Aumenta_Si_Percentage_Es_Positivo()
+    {
+        try {
+            Employee duvanPerez = new Employee("Juan", "Perez", "Gomez", "12345678A", 1000);
+            duvanPerez.raiseSalary(10);
+            assertTrue(true);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(false);
+        }
+    }
 }
