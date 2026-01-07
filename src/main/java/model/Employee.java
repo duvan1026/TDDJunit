@@ -60,4 +60,20 @@ public class Employee {
             throw new IllegalArgumentException(fieldName + " is null");
         }
     }
+
+    public void raiseSalary(int percentage){
+
+        if (percentage < 0)
+        {
+            throw new IllegalArgumentException("Percentage negativo no permitido");
+        }
+
+        if(percentage == 0)
+        {
+            return;
+        }
+
+        double newSalary = this.Salary + (this.Salary *  percentage / 100);
+        this.Salary =  newSalary;
+    }
 }
