@@ -43,6 +43,11 @@ public class Employee {
             throw new IllegalArgumentException("Id inválido");
         }
 
+        if (salary < 600 || salary > 1000)
+        {
+            throw new IllegalArgumentException("Salary fuera de rango");
+        }
+
         this.FirstName = firstName;
         this.LastName1 = lastName1;
         this.LastName2 = lastName2;
