@@ -187,4 +187,54 @@ public class EmployeeTest {
             assertTrue(false);
         }
     }
+
+    @Test
+    void IsEqualTo_Falla_Si_OtherEmployee_Es_Nulo()
+    {
+        try {
+            Employee duvanPerez = new Employee("Juan", "Perez", "Gomez", "12345678A", 1000);
+            duvanPerez.isEqualTo(null);
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(e.getMessage().equals("Employee nulo"));
+        }
+    }
+
+    @Test
+    void IsEqualTo_Devuelve_Verdadero_Si_Id_Son_Iguales()
+    {
+        try {
+            Employee employee1 = new Employee("Juan", "Perez", "Gomez", "12345678A", 1000);
+            Employee employee2 = new Employee("Maria", "Lopez", "Diaz", "12345678A", 1000);
+
+            boolean result = employee1.isEqualTo(employee2);
+            if(result){
+                assertTrue(true);
+                return;
+            }
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(false);
+        }
+    }
+
+    @Test
+    void IsEqualTo_Devuelve_Falso_Si_Id_Son_Distintos()
+    {
+        try {
+            Employee employee1 = new Employee("Juan", "Perez", "Gomez", "12345678A", 1000);
+            Employee employee2 = new Employee("Maria", "Lopez", "Diaz", "12345679A", 1000);
+
+            boolean result = employee1.isEqualTo(employee2);
+            if(!result){
+                assertTrue(true);
+                return;
+            }
+            assertTrue(false);
+        } catch (IllegalArgumentException  e) {
+            assertTrue(false);
+        }
+    }
+
+
 }
